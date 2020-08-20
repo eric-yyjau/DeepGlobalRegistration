@@ -27,6 +27,8 @@ from core.deep_global_registration import DeepGlobalRegistration
 from util.timer import Timer
 from util.pointcloud import make_open3d_point_cloud
 
+import code
+
 o3d.utility.set_verbosity_level(o3d.utility.VerbosityLevel.Warning)
 ch = logging.StreamHandler(sys.stdout)
 logging.getLogger().setLevel(logging.INFO)
@@ -107,7 +109,9 @@ def evaluate(methods, method_names, data_loader, config, debug=False):
 
     for i, method in enumerate(methods):
       start = time.time()
+      code.interact(local=locals())
       T = method.register(xyz0, xyz1)
+
       end = time.time()
 
       # Visualize
@@ -159,6 +163,17 @@ def evaluate(methods, method_names, data_loader, config, debug=False):
 if __name__ == '__main__':
   config = get_config()
   print(config)
+
+  # dump config
+  import yaml
+  output_file = 'configs/config.yml'
+  config_dict = vars(config)
+  with open(output_file, "w") as f:
+    yaml.dump(config, f, default_flow_style=False)
+  # load config
+  with open(output_file, "r") as f:
+    config = yaml.load(f, Loader=yaml.FullLoader)
+  
 
   dgr = DeepGlobalRegistration(config)
 
