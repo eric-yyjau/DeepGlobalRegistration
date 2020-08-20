@@ -5,9 +5,13 @@
 # - Christopher Choy, Jaesik Park, Vladlen Koltun, Fully Convolutional Geometric Features, ICCV 2019
 # - Christopher Choy, JunYoung Gwak, Silvio Savarese, 4D Spatio-Temporal ConvNets: Minkowski Convolutional Neural Networks, CVPR 2019
 import logging
-import model.simpleunet as simpleunets
-import model.resunet as resunets
-import model.pyramidnet as pyramids
+# import DGR.model.simpleunet as simpleunets
+# import DGR.model.resunet as resunets
+# import DGR.model.pyramidnet as pyramids
+
+from . import simpleunet as simpleunets
+from . import resunet as resunets
+from . import pyramidnet as pyramids
 
 MODELS = []
 

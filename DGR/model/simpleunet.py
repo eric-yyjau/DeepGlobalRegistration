@@ -7,7 +7,8 @@
 import torch
 import MinkowskiEngine as ME
 import MinkowskiEngine.MinkowskiFunctional as MEF
-from model.common import get_norm
+# from DGR.model.common import get_norm
+from .common import get_norm
 
 
 class SimpleNet(ME.MinkowskiNetwork):

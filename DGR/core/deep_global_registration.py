@@ -15,14 +15,15 @@ import torch
 import copy
 import MinkowskiEngine as ME
 
-sys.path.append('.')
-from model import load_model
+# sys.path.append('.')
+sys.path.insert(0, '../')
+from DGR.model import load_model
 
-from core.registration import GlobalRegistration
-from core.knn import find_knn_gpu
+from DGR.core.registration import GlobalRegistration
+from DGR.core.knn import find_knn_gpu
 
-from util.timer import Timer
-from util.pointcloud import make_open3d_point_cloud
+from DGR.util.timer import Timer
+from DGR.util.pointcloud import make_open3d_point_cloud
 
 
 # Feature-based registrations in Open3D
